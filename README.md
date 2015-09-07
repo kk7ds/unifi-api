@@ -230,6 +230,12 @@ Unauthorize a guest based on his MAC address.
 
   - `guest_mac` -- the guest MAC address : aa:bb:cc:dd:ee:ff
 
+### `update_wpa_key(self, ssid, newkey)`
+Updates the WPA key of a network with a certain SSID
+
+   - `ssid`       -- the ssid of which we want to change the WPA key
+   - `newkey`     -- the new WPA key
+
 License
 -------
 

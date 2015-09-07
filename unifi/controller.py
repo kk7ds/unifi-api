@@ -217,6 +217,18 @@ class Controller:
 
         return self._read(self.api_url + 'list/wlanconf')
 
+    def update_wpa_key(self, ssid, newkey):
+        """Update the KEY of a certain SSID network."""
+        wlc = self.get_wlan_conf()
+        for i in wlc:
+            if i[u'name'] == ssid:
+                i[u'x_passphrase'] = newkey
+                apid = i[u'_id']
+                del i[u'_id']
+                del i[u'site_id']
+                return self._read(self.api_url + u'upd/wlanconf/' + apid, urllib.urlencode({'json': json.dumps(i)}) )
+        return None
+
     def _run_command(self, command, params={}, mgr='stamgr'):
         log.debug('_run_command(%s)', command)
         params.update({'cmd': command})
