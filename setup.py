@@ -5,8 +5,10 @@ import sys
 
 if sys.version_info[0] == 2:
     from commands import getoutput
+    requires = []
 elif sys.version_info[0] == 3:
     from subprocess import getoutput
+    requires = ['urllib3']
 
 
 version = getoutput('git describe --always') or '1.0'
@@ -18,6 +20,7 @@ setup(name='unifi',
       author_email='jakob@nym.se',
       url='https://github.com/calmh/unifi-api',
       packages=['unifi'],
+      requires=requires,
       scripts=['unifi-low-snr-reconnect', 'unifi-ls-clients', 'unifi-save-statistics', 'unifi-log-roaming'],
       classifiers=['Development Status :: 4 - Beta',
           'Intended Audience :: Developers',
