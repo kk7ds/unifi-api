@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 import sys
 
 if sys.version_info[0] == 2:
@@ -21,7 +21,8 @@ setup(name='unifi',
       url='https://github.com/calmh/unifi-api',
       packages=['unifi'],
       requires=requires,
-      scripts=['unifi-low-snr-reconnect', 'unifi-ls-clients', 'unifi-save-statistics', 'unifi-log-roaming'],
+      scripts=['unifi-low-snr-reconnect', 'unifi-ls-clients',
+               'unifi-save-statistics', 'unifi-log-roaming'],
       classifiers=['Development Status :: 4 - Beta',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
