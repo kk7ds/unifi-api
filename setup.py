@@ -12,6 +12,10 @@ elif sys.version_info[0] == 3:
 
 
 version = getoutput('git describe --always') or '1.0'
+if not version.startswith('1.'):
+    print('Failed to get version from git: %s' % version)
+    sys.exit(1)
+
 
 setup(name='unifi',
       version=version,
